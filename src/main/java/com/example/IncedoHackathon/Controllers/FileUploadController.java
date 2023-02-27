@@ -23,21 +23,19 @@ import com.example.IncedoHackathon.Entities.IdeaSubmission;
 import com.example.IncedoHackathon.Helper.FileUploadHelper;
 import com.example.IncedoHackathon.Repositories.IdeaSubmissionRepository;
 
-
 @RestController
 @CrossOrigin("*")
 public class FileUploadController {
 
 	@Autowired
 	private FileUploadHelper fileUploadHelper;
-	
+
 	@Autowired
 	private IdeaSubmissionRepository ideaSubmissionRepository;
 
 	@PostMapping("/upload-file")
 	public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file,
 			@RequestParam("teamName") String teamName) {
-
 		try {
 
 			if (file.isEmpty()) {
@@ -63,8 +61,9 @@ public class FileUploadController {
 	@GetMapping("/download/{teamName}")
 	public ResponseEntity<Object> downloadFileFromLocal(@PathVariable("teamName") String teamName) {
 		IdeaSubmission ideaSubmission = ideaSubmissionRepository.findByRegistrationTeamName(teamName);
-		String fileDirectory = "src/main/resources/static/Final submission/" + teamName+ "/" + ideaSubmission.getFinalSubmission();
-		
+		String fileDirectory = "src/main/resources/static/Final submission/" + teamName + "/"
+				+ ideaSubmission.getFinalSubmission();
+
 		Path path = Paths.get(fileDirectory);
 		Resource resource = null;
 		try {

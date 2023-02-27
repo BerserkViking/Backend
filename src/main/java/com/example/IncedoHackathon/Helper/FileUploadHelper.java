@@ -19,11 +19,11 @@ import com.example.IncedoHackathon.Repositories.IdeaSubmissionRepository;
 
 @Component
 public class FileUploadHelper {
-	
+		
 	@Autowired
 	IdeaSubmissionRepository ideaSubmissionRepository;
 
-	public final String UPLOAD_DIR = "src/main/resources/static/Final submission/";
+	public final String UPLOAD_DIR = "C:\\Users\\user3\\Desktop\\Frontend\\src\\components\\videos";
 
 	public boolean uploadFile(MultipartFile multipartFile, String teamName) throws IOException {
 		boolean f = false;

@@ -100,16 +100,18 @@ public class IdeaSubmissionController {
 		IdeaSubmission submit = ideaSubmissionRepository.findByRegistrationTeamName(teamName);
 		return submit;
 	}
-
+	
+//	//@CrossOrigin("*")
 	@PutMapping("/idea/teamName")
-	public ResponseEntity<IdeaSubmission> updateIdeaDetails(@RequestBody IdeaSubmission idea) {
+	public ResponseEntity<IdeaSubmission> updateIdeaDetails(@RequestBody IdeaSubmissionDTO ideaSubmissionDTO) {
+		
 		IdeaSubmission updateIdeaSubmission = ideaSubmissionRepository
-				.findByRegistrationTeamName(idea.getRegistration().getTeamName());
+				.findByRegistrationTeamName(ideaSubmissionDTO.getTeamName());
 
-		if(idea.getStatus()=="Revert") {
-		updateIdeaSubmission.setProblemStatement(idea.getProblemStatement());
-		updateIdeaSubmission.setProblemSolution(idea.getProblemSolution());
-
+		if(updateIdeaSubmission!=null && updateIdeaSubmission.getStatus()=="Revert") {
+		updateIdeaSubmission.setProblemStatement(ideaSubmissionDTO.getIdeaSubmission().getProblemStatement());
+		updateIdeaSubmission.setProblemSolution(ideaSubmissionDTO.getIdeaSubmission().getProblemSolution());
+		updateIdeaSubmission.setStatus(updateIdeaSubmission.getStatus());
 		ideaSubmissionRepository.save(updateIdeaSubmission);
 		}
 		return ResponseEntity.ok(updateIdeaSubmission);
