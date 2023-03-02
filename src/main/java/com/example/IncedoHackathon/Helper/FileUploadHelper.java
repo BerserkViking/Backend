@@ -23,7 +23,7 @@ public class FileUploadHelper {
 	@Autowired
 	IdeaSubmissionRepository ideaSubmissionRepository;
 
-	public final String UPLOAD_DIR = "C:\\Users\\user3\\Desktop\\Frontend\\src\\components\\videos";
+	public final String UPLOAD_DIR = "C:\\Users\\user3\\Desktop\\Frontend\\public\\Videos\\";
 
 	public boolean uploadFile(MultipartFile multipartFile, String teamName) throws IOException {
 		boolean f = false;

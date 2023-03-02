@@ -6,20 +6,18 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-@Entity
-@Table(name="panelist")
 
-public class Panelist {
-	
+@Entity
+@Table(name = "admin")
+public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	Long id;
 	
-
-	@Column(nullable = false, unique = true)
-	private String userName;
-
-	@Column(nullable = false)
+	@Column(name = "username")
+	private String username;
+	
+	@Column(name = "password")
 	private String password;
 
 	public Long getId() {
@@ -30,12 +28,12 @@ public class Panelist {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -46,22 +44,25 @@ public class Panelist {
 		this.password = password;
 	}
 
-	public Panelist(Long id, String userName, String password) {
+	public Admin(Long id, String username, String password) {
 		super();
 		this.id = id;
-		this.userName = userName;
+		this.username = username;
 		this.password = password;
 	}
 
-	public Panelist() {
+	public Admin() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String toString() {
-		return "Panelist [id=" + id + ", userName=" + userName + ", password=" + password + "]";
+		return "Admin [id=" + id + ", username=" + username + ", password=" + password + "]";
 	}
+
+	
+	
 	
 	
 

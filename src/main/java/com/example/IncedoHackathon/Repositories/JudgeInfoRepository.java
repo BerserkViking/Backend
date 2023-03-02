@@ -10,4 +10,6 @@ public interface JudgeInfoRepository extends JpaRepository<JudgeInfo,Long>{
 
 	Optional<JudgeInfo> findByUserNameAndPassword(String userName, String password);
 
+	JudgeInfo findByUserName(String userName);
+
 }

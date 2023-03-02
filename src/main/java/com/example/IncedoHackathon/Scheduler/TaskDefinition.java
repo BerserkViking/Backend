@@ -5,22 +5,31 @@ import java.util.List;
 public class TaskDefinition {
 
 	private String cronExpression;
-	private List<SubTaskDefinition> subTasks;
+	private SubTaskDefinition subTask;
 
 	public String getCronExpression() {
 		return cronExpression;
+	}
+	
+	public TaskDefinition() {
+		super();
 	}
 
 	public void setCronExpression(String cronExpression) {
 		this.cronExpression = cronExpression;
 	}
 
-	public List<SubTaskDefinition> getSubTasks() {
-		return subTasks;
+	public SubTaskDefinition getSubTask() {
+		return subTask;
 	}
 
-	public void setSubTasks(List<SubTaskDefinition> subTasks) {
-		this.subTasks = subTasks;
+	public void setSubTask(SubTaskDefinition subTask) {
+		this.subTask = subTask;
+	}
+
+	@Override
+	public String toString() {
+		return "TaskDefinition [cronExpression=" + cronExpression + ", subTask=" + subTask + "]";
 	}
 
 }

@@ -1,0 +1,30 @@
+package com.example.IncedoHackathon.Controllers;
+import java.lang.String;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.IncedoHackathon.Entities.JudgeRatings;
+import com.example.IncedoHackathon.Repositories.JudgeRatingsRepository;
+
+@RestController
+@CrossOrigin("*")
+@RequestMapping("/api/leaderboard")
+public class LeaderBoardController {
+	@Autowired 
+	private JudgeRatingsRepository  judgeRatingsRepository;
+	
+	
+     
+	@GetMapping("/Details")	
+	public List<JudgeRatings> getDetails() {
+		List<JudgeRatings> judgeRatings= judgeRatingsRepository.findAll();
+		return judgeRatings;
+	}
+    
+}

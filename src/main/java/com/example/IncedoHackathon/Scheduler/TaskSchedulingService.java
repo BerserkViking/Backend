@@ -24,11 +24,12 @@ public class TaskSchedulingService {
         jobsMap.put(jobId, scheduledTask);
     }
 
-    public void removeScheduledTask(String jobId) {
-        ScheduledFuture<?> scheduledTask = jobsMap.get(jobId);
-        if(scheduledTask != null) {
-            scheduledTask.cancel(true);
-            jobsMap.put(jobId, null);
-        }
+    public void removeScheduledTask() {
+    	for (String scheduledTaskName : jobsMap.keySet()) {
+			ScheduledFuture<?> scheduledTask = jobsMap.get(scheduledTaskName);
+			if (scheduledTask != null) {
+				scheduledTask.cancel(true);
+			}
+		}
     }
 }

@@ -61,7 +61,7 @@ public class FileUploadController {
 	@GetMapping("/download/{teamName}")
 	public ResponseEntity<Object> downloadFileFromLocal(@PathVariable("teamName") String teamName) {
 		IdeaSubmission ideaSubmission = ideaSubmissionRepository.findByRegistrationTeamName(teamName);
-		String fileDirectory = "src/main/resources/static/Final submission/" + teamName + "/"
+		String fileDirectory = "C:\\Users\\user3\\Desktop\\Frontend\\public\\Videos" + teamName + "/"
 				+ ideaSubmission.getFinalSubmission();
 
 		Path path = Paths.get(fileDirectory);

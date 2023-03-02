@@ -15,13 +15,13 @@ public class Registration {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "teamName", nullable = false, unique = true, length = 20)
+	@Column(name = "teamName", nullable = false, unique = true)
 	private String teamName;
 
-	@Column(nullable = false, unique = true, length = 20)
+	@Column(nullable = false, unique = true)
 	private String projectTitle;
 
-	@Column(nullable = false, length = 20)
+	@Column(nullable = false)
 	private String domain;
 
 	@Column(nullable = false, length = 5)

@@ -1,31 +1,30 @@
 package com.example.IncedoHackathon.Scheduler;
 
-import java.util.List;
-
 public class SubTaskDefinition {
 
-    private String actionType;
-    private String data;
-    private List<String> assignees;
-    
+	private String actionType;
+
+	private long interval;
+
 	public String getActionType() {
 		return actionType;
 	}
+
 	public void setActionType(String actionType) {
 		this.actionType = actionType;
 	}
-	public String getData() {
-		return data;
+
+	public long getInterval() {
+		return interval;
 	}
-	public void setData(String data) {
-		this.data = data;
+
+	public void setInterval(long interval) {
+		this.interval = interval;
 	}
-	public List<String> getAssignees() {
-		return assignees;
+
+	@Override
+	public String toString() {
+		return "SubTaskDefinition [actionType=" + actionType + ", interval=" + interval + "]";
 	}
-	public void setAssignees(List<String> assignees) {
-		this.assignees = assignees;
-	}
-    
-    
+
 }
